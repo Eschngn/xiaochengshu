@@ -1,0 +1,75 @@
+2024-09-17 22:54:25.289 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2024-09-17 22:54:25.379 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2024-09-17 22:54:26.110 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2024-09-17 22:54:26.131 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2024-09-17 22:54:26.133 [main] INFO  c.s.o.user.biz.DistributedIdGeneratorRpcTest - The following 1 profile is active: "dev"
+2024-09-17 22:54:26.952 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-09-17 22:54:26.957 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-09-17 22:54:26.988 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2024-09-17 22:54:27.321 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=6e11e1d9-2ff7-35ca-b980-f597c7131e9a
+2024-09-17 22:54:27.368 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.swc.orangeBook.oss.api.FileFeignApi' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-09-17 22:54:27.370 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.swc.orangeBook.user.api.UserFeignApi' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-09-17 22:54:27.371 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.swc.orangeBook.distributed.id.generator.api.DistributedIdGeneratorFeignApi' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-09-17 22:54:27.798 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2024-09-17 22:54:28.320 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2024-09-17 22:54:28.764 [main] INFO  o.s.cloud.openfeign.FeignClientFactoryBean - For 'xiaochengshu-oss' URL not provided. Will try picking an instance via load-balancing.
+2024-09-17 22:54:29.237 [main] INFO  o.s.cloud.openfeign.FeignClientFactoryBean - For 'xiaochengshu-distributed-id-generator' URL not provided. Will try picking an instance via load-balancing.
+2024-09-17 22:54:30.576 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-09-17 22:54:30.609 [main] INFO  c.s.o.user.biz.DistributedIdGeneratorRpcTest - Started DistributedIdGeneratorRpcTest in 6.085 seconds (process running for 7.338)
+2024-09-17 22:54:30.610 [main] INFO  c.s.o.u.biz.runner.PushRolePermissions2RedisRunner - ==> 服务启动，开始同步角色权限数据到 Redis 中...
+2024-09-17 22:54:31.328 [main] WARN  c.s.o.u.biz.runner.PushRolePermissions2RedisRunner - ==> 角色权限数据已经同步至 Redis 中，不再同步...
+2024-09-17 22:54:31.965 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2024-09-17 22:54:31.966 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2024-09-17 22:54:31.967 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2024-09-17 22:54:31.968 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2024-09-17 22:54:32.005 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2024-09-17 22:54:32.005 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2024-09-17 22:54:32.007 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2024-09-17 22:54:32.013 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2024-09-17 22:54:32.013 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2024-09-17 22:54:32.017 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2024-09-17 22:54:32.030 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of fb4ff614-86d6-42c2-921e-d5412e33c057
+2024-09-17 22:54:32.058 [main] INFO  com.alibaba.nacos.common.remote.client - [fb4ff614-86d6-42c2-921e-d5412e33c057] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2024-09-17 22:54:32.058 [main] INFO  com.alibaba.nacos.common.remote.client - [fb4ff614-86d6-42c2-921e-d5412e33c057] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2024-09-17 22:54:32.058 [main] INFO  com.alibaba.nacos.common.remote.client - [fb4ff614-86d6-42c2-921e-d5412e33c057] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2024-09-17 22:54:32.062 [main] INFO  com.alibaba.nacos.common.remote.client - [fb4ff614-86d6-42c2-921e-d5412e33c057] Try to connect to server on start up, server: {serverIp = '192.168.247.138', server main port = 8848}
+2024-09-17 22:54:32.091 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:192.168.247.138 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2024-09-17 22:54:33.434 [main] INFO  com.alibaba.nacos.common.remote.client - [fb4ff614-86d6-42c2-921e-d5412e33c057] Success to connect to server [192.168.247.138:8848] on start up, connectionId = 1726574886833_192.168.247.1_55879
+2024-09-17 22:54:33.435 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [fb4ff614-86d6-42c2-921e-d5412e33c057] Notify connected event to listeners.
+2024-09-17 22:54:33.435 [main] INFO  com.alibaba.nacos.common.remote.client - [fb4ff614-86d6-42c2-921e-d5412e33c057] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2024-09-17 22:54:33.435 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2024-09-17 22:54:33.435 [main] INFO  com.alibaba.nacos.common.remote.client - [fb4ff614-86d6-42c2-921e-d5412e33c057] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1662/0x00000169b3a81420
+2024-09-17 22:54:33.436 [main] INFO  com.alibaba.nacos.client.naming - [SUBSCRIBE-SERVICE] service:xiaochengshu-distributed-id-generator, group:DEFAULT_GROUP, clusters: 
+2024-09-17 22:54:33.457 [main] INFO  com.alibaba.nacos.client.naming - init new ips(1) service: DEFAULT_GROUP@@xiaochengshu-distributed-id-generator -> [{"ip":"192.168.17.1","port":8085,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@xiaochengshu-distributed-id-generator","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000}]
+2024-09-17 22:54:33.465 [main] INFO  com.alibaba.nacos.client.naming - current ips:(1) service: DEFAULT_GROUP@@xiaochengshu-distributed-id-generator -> [{"ip":"192.168.17.1","port":8085,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@xiaochengshu-distributed-id-generator","metadata":{"preserved.register.source":"SPRING_CLOUD"},"ipDeleteTimeout":30000,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000}]
+2024-09-17 22:54:33.527 [main] INFO  c.s.o.user.biz.DistributedIdGeneratorRpcTest - 拿到分布式id:12101
+2024-09-17 22:54:33.547 [Thread-8] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Start destroying common HttpClient
+2024-09-17 22:54:33.547 [Thread-8] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Destruction of the end
+2024-09-17 22:54:33.547 [Thread-5] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Start destroying Publisher
+2024-09-17 22:54:33.548 [Thread-5] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Destruction of the end
+2024-09-17 22:54:33.551 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2024-09-17 22:54:33.551 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Destruction of the end
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2024-09-17 22:54:33.855 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Destruction of the end
+2024-09-17 22:54:33.856 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2024-09-17 22:54:33.856 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown rpc client, set status to shutdown
+2024-09-17 22:54:33.856 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@577bf182[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2024-09-17 22:54:33.856 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1726574886833_192.168.247.1_55879
+2024-09-17 22:54:33.860 [nacos-grpc-client-executor-192.168.247.138-9] WARN  c.a.nacos.common.remote.client.grpc.GrpcClient - [1726574886833_192.168.247.1_55879]Ignore error event,isRunning:false,isAbandon=false
+2024-09-17 22:54:33.862 [SpringApplicationShutdownHook] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@37495faa[Running, pool size = 10, active threads = 0, queued tasks = 0, completed tasks = 10]
+2024-09-17 22:54:33.862 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@ea718ce[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 0]
+2024-09-17 22:54:33.862 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - [null] CredentialWatcher is stopped
+2024-09-17 22:54:33.863 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialService - [null] CredentialService is freed
+2024-09-17 22:54:33.863 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+2024-09-17 22:54:33.990 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2024-09-17 22:54:34.002 [SpringApplicationShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed

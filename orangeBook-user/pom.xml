@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 指定父项目 -->
+    <parent>
+        <groupId>com.swc</groupId>
+        <artifactId>orangeBook</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>orangeBook-user</artifactId>
+    <!-- 多模块项目需要配置打包方式为 pom -->
+    <packaging>pom</packaging>
+    <!-- 项目描述 -->
+    <description>用户服务</description>
+    <!--项目名称-->
+    <name>${artifactId}</name>
+
+    <!-- 子模块管理 -->
+    <modules>
+        <module>orangeBook-user-api</module>
+        <module>orangeBook-user-biz</module>
+    </modules>
+
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

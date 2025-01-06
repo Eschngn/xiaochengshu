@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/orange-framework/orange-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/orange-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/orange-spring-boot-starter-biz-context/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/orange-spring-boot-starter-biz-context/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/orange-spring-boot-starter-biz-operationlog/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/orange-spring-boot-starter-biz-operationlog/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/orange-spring-boot-starter-jackson/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/orange-spring-boot-starter-jackson/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orange-framework/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-count/orangeBook-count-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-count/orangeBook-count-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-count/orangeBook-count-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-count/orangeBook-count-biz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-count/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-count/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-data-align/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-data-align/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-distributed-id-generator/orangBook-distributed-id-generator-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-distributed-id-generator/orangBook-distributed-id-generator-biz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-distributed-id-generator/orangeBook-distributed-id-generator-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-distributed-id-generator/orangeBook-distributed-id-generator-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-distributed-id-generator/orangeBook-distributed-id-generator-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-distributed-id-generator/orangeBook-distributed-id-generator-biz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-distributed-id-generator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-distributed-id-generator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-kv/orangeBook-kv-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-kv/orangeBook-kv-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-kv/orangeBook-kv-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-kv/orangeBook-kv-biz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-kv/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-kv/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-note/orangeBook-note-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-note/orangeBook-note-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-note/orangeBook-note-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-note/orangeBook-note-biz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-note/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-note/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-oss/orangeBook-oss-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-oss/orangeBook-oss-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-oss/orangeBook-oss-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-oss/orangeBook-oss-biz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-oss/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-oss/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user-relation/orangeBook-user-relation-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user-relation/orangeBook-user-relation-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user-relation/orangeBook-user-relation-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user-relation/orangeBook-user-relation-biz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user-relation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user-relation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user/orangeBook-user-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user/orangeBook-user-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user/orangeBook-user-biz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user/orangeBook-user-biz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orangeBook-user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
