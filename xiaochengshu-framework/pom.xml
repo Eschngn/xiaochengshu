@@ -14,5 +14,6 @@
 
     <modules>
         <module>xiaochengshu-common</module>
+        <module>xiaochengshu-spring-boot-starter-biz-operationlog</module>
     </modules>
 </project>

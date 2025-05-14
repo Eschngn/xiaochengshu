@@ -32,6 +32,7 @@
     <spring-boot.version>3.0.2</spring-boot.version>
     <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
     <spring-cloud.version>2022.0.0</spring-cloud.version>
+    <jackson.version>2.16.1</jackson.version>
     <mysql-connector-java.version>8.0.29</mysql-connector-java.version>
     <nacos-config.version>0.3.0-RC</nacos-config.version>
     <druid.version>1.2.21</druid.version>
@@ -45,7 +46,14 @@
 
       <dependency>
         <groupId>com.chengliuxiang</groupId>
-        <artifactId>common</artifactId>
+        <artifactId>xiaochengshu-common</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
+      <!-- 业务接口日志组件 -->
+      <dependency>
+        <groupId>com.chengliuxiang</groupId>
+        <artifactId>xiaochengshu-spring-boot-starter-biz-operationlog</artifactId>
         <version>${revision}</version>
       </dependency>
 
@@ -81,6 +89,19 @@
         <version>${spring-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+
+      <!-- Jackson -->
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>${jackson.version}</version>
       </dependency>
 
       <!-- Mybatis -->

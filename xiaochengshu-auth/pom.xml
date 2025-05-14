@@ -21,7 +21,11 @@
         <dependency>
             <groupId>com.chengliuxiang</groupId>
             <artifactId>xiaochengshu-common</artifactId>
-            <version>${revision}</version>
+        </dependency>
+        <!-- 业务接口日志组件 -->
+        <dependency>
+            <groupId>com.chengliuxiang</groupId>
+            <artifactId>xiaochengshu-spring-boot-starter-biz-operationlog</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
