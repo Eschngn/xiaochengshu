@@ -12,6 +12,7 @@
 
   <modules>
     <module>xiaochengshu-auth</module>
+    <module>xiaochengshu-framework</module>
   </modules>
 
   <properties>
@@ -172,4 +173,5 @@
     </pluginManagement>
 
   </build>
+
 </project>

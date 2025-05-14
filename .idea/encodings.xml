@@ -5,5 +5,9 @@
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiaochengshu-auth/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiaochengshu-auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaochengshu-framework/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaochengshu-framework/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaochengshu-framework/xiaochengshu-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaochengshu-framework/xiaochengshu-common/src/main/resources" charset="UTF-8" />
   </component>
 </project>
