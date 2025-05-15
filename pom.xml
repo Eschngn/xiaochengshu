@@ -57,6 +57,13 @@
         <version>${revision}</version>
       </dependency>
 
+      <!-- Jackson 组件-->
+      <dependency>
+        <groupId>com.chengliuxiang</groupId>
+        <artifactId>xiaochengshu-spring-boot-starter-jackson</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
       <!-- lombok -->
       <dependency>
         <groupId>org.projectlombok</groupId>
