@@ -7,9 +7,11 @@ import com.chengliuxiang.xiaochengshu.auth.constant.RedisKeyConstants;
 import com.chengliuxiang.xiaochengshu.auth.enums.ResponseCodeEnum;
 import com.chengliuxiang.xiaochengshu.auth.model.vo.verificationcode.SendVerificationCodeReqVO;
 import com.chengliuxiang.xiaochengshu.auth.service.VerificationCodeService;
+import com.chengliuxiang.xiaochengshu.auth.sms.AliyunSmsHelper;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
@@ -19,6 +21,12 @@ import java.util.concurrent.TimeUnit;
 public class VerificationCodeServiceImpl implements VerificationCodeService {
     @Resource
     private RedisTemplate<String,Object> redisTemplate;
+
+    @Resource(name = "taskExecutor")
+    private ThreadPoolTaskExecutor threadPoolTaskExecutor;
+
+    @Resource
+    private AliyunSmsHelper aliyunSmsHelper;
 
     /**
      * 发送短信验证码
@@ -35,6 +43,13 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
         }
         String verificationCode = RandomUtil.randomNumbers(6);
         log.info("==> 手机号:{},已发送验证码:【{}】",phone,verificationCode);
+        // 调用第三方短信发送服务
+        threadPoolTaskExecutor.submit(() -> {
+            String signName = "阿里云短信测试";
+            String templateCode = "SMS_154950909";
+            String templateParam = String.format("{\"code\":\"%s\"}", verificationCode);
+            aliyunSmsHelper.sendMessage(signName, templateCode, phone, templateParam);
+        });
         redisTemplate.opsForValue().set(key,verificationCode,3, TimeUnit.MINUTES);
         return Response.success();
     }
