@@ -13,6 +13,7 @@
   <modules>
     <module>xiaochengshu-auth</module>
     <module>xiaochengshu-framework</module>
+      <module>xiaochengshu-gateway</module>
   </modules>
 
   <properties>
