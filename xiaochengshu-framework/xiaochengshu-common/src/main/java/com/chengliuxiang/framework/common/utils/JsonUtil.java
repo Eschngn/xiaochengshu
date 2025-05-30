@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.SneakyThrows;
 
-public class JsonUtil {
+public final class JsonUtil {
     private static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {
