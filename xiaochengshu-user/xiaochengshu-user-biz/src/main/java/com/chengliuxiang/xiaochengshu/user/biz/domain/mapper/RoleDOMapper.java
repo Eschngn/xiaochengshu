@@ -2,6 +2,8 @@ package com.chengliuxiang.xiaochengshu.user.biz.domain.mapper;
 
 import com.chengliuxiang.xiaochengshu.user.biz.domain.dataobject.RoleDO;
 
+import java.util.List;
+
 public interface RoleDOMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,10 @@ public interface RoleDOMapper {
     int updateByPrimaryKeySelective(RoleDO record);
 
     int updateByPrimaryKey(RoleDO record);
+
+    /**
+     * 查询所有被启用的角色
+     * @return
+     */
+    List<RoleDO> selectEnabledRoles();
 }

@@ -2,6 +2,8 @@ package com.chengliuxiang.xiaochengshu.user.biz.domain.mapper;
 
 import com.chengliuxiang.xiaochengshu.user.biz.domain.dataobject.PermissionDO;
 
+import java.util.List;
+
 public interface PermissionDOMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -14,4 +16,10 @@ public interface PermissionDOMapper {
     int updateByPrimaryKeySelective(PermissionDO record);
 
     int updateByPrimaryKey(PermissionDO record);
+
+    /**
+     * 查询 APP 端所有被启用的权限
+     * @return
+     */
+    List<PermissionDO> selectAppEnabledList();
 }
