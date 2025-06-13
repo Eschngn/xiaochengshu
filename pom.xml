@@ -47,6 +47,7 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <dysmsapi.version>4.1.0</dysmsapi.version>
         <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
+        <minio.version>8.2.1</minio.version>
     </properties>
 
     <!-- 统一依赖管理 -->
@@ -200,6 +201,12 @@
                 <version>${transmittable-thread-local.version}</version>
             </dependency>
 
+            <!-- 对象存储 Minio -->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

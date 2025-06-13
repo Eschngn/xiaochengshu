@@ -7,12 +7,15 @@ import jakarta.annotation.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileServiceImpl implements FileService {
+
     @Resource
     private FileStrategy fileStrategy;
 
+    private static final String BUCKET_NAME="xiaochengshu";
+
     @Override
     public Response<?> uploadFile(MultipartFile file) {
-        fileStrategy.uploadFile(file, "xiaohashu");
+        fileStrategy.uploadFile(file, BUCKET_NAME);
 
         return Response.success();
     }
