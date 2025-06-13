@@ -16,7 +16,6 @@ spring:
       min-evictable-idle-time-millis: 300000 # 配置一个连接在连接池中最小生存的时间（单位：毫秒）
       max-evictable-idle-time-millis: 900000 # 配置一个连接在连接池中最大生存的时间（单位：毫秒）
       validation-query: SELECT 1 FROM DUAL # 配置测试连接是否可用的查询 sql
-      connectionProperties: config.decrypt=true;config.decrypt.key=MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI4pGhB5FPZ1gmp0Q+vGfs6KTWq9ukzkUY4uuADX/DuCehh5eGDOr7wt5gOTvvbXTwPsj0kWcYetVzFSa/ohxZECAwEAAQ==
       test-on-borrow: false #连接从连接池获取时是否测试连接的可用性。
       test-on-return: false #连接返回连接池时是否测试连接的可用性。
       pool-prepared-statements: false #是否缓存 PreparedStatement，默认为 false。
@@ -36,8 +35,6 @@ spring:
         wall: # 防火墙
           config:
             multi-statement-allow: true
-        config:
-          enabled: true
   data:
     redis:
       database: 0 # Redis 数据库索引（默认为 0）
