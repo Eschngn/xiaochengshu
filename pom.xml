@@ -15,6 +15,7 @@
         <module>xiaochengshu-framework</module>
         <module>xiaochengshu-gateway</module>
         <module>xiaochengshu-user</module>
+        <module>xiaochengshu-oss</module>
     </modules>
 
     <properties>
