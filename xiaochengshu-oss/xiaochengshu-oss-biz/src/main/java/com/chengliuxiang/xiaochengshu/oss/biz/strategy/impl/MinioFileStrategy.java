@@ -23,7 +23,7 @@ public class MinioFileStrategy implements FileStrategy {
 
     @Override
     @SneakyThrows
-    public String uploadFile(MultipartFile file, String bucketName) {
+    public String uploadFile(MultipartFile file) {
         log.info("## 上传文件至 Minio ...");
 
         if (file == null || file.getSize() == 0) {
@@ -38,13 +38,13 @@ public class MinioFileStrategy implements FileStrategy {
         String objectName = String.format("%s%s", key, suffix);
 
         minioClient.putObject(PutObjectArgs.builder()
-                .bucket(bucketName)
+                .bucket(minioProperties.getBucketName())
                 .object(objectName)
                 .stream(file.getInputStream(), file.getSize(), -1)
                 .contentType(contentType)
                 .build());
 
-        String url = String.format("%s/%s/%s", minioProperties.getEndpoint(), bucketName, objectName);
+        String url = String.format("%s/%s/%s", minioProperties.getEndpoint(), minioProperties.getBucketName(), objectName);
         log.info("==> 上传文件至 Minio 成功，访问路径: {}", url);
         return url;
     }
