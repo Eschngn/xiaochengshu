@@ -236,6 +236,12 @@
                 <version>${jaxb-runtime.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.chengliuxiang</groupId>
+                <artifactId>xiaochengshu-user-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

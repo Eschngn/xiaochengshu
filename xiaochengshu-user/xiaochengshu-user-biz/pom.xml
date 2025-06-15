@@ -82,6 +82,11 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.chengliuxiang</groupId>
+            <artifactId>xiaochengshu-user-api</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
