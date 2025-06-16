@@ -2,6 +2,7 @@ package com.chengliuxiang.xiaochengshu.user.biz.service.impl;
 
 import com.chengliuxiang.framework.common.enums.DeleteEnum;
 import com.chengliuxiang.framework.common.enums.StatusEnum;
+import com.chengliuxiang.framework.common.exception.BizException;
 import com.chengliuxiang.framework.common.response.Response;
 import com.chengliuxiang.framework.common.utils.JsonUtil;
 import com.chengliuxiang.xiaochengshu.user.biz.constant.RedisKeyConstants;
@@ -12,8 +13,11 @@ import com.chengliuxiang.xiaochengshu.user.biz.domain.dataobject.UserRoleDO;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.mapper.RoleDOMapper;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.mapper.UserDOMapper;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.mapper.UserRoleDOMapper;
+import com.chengliuxiang.xiaochengshu.user.biz.enums.ResponseCodeEnum;
 import com.chengliuxiang.xiaochengshu.user.biz.service.UserService;
+import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByPhoneReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.RegisterUserReqDTO;
+import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByPhoneRspDTO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -93,5 +97,25 @@ public class UserServiceImpl implements UserService {
         // 将该用户 ID 和角色数据存入 Redis 中
         redisTemplate.opsForValue().set(userRolesKey, JsonUtil.toJsonString(roles));
         return Response.success(userId);
+    }
+
+    /**
+     * 根据手机号查询用户信息
+     *
+     * @param findUserByPhoneReqDTO
+     * @return
+     */
+    @Override
+    public Response<FindUserByPhoneRspDTO> findByPhone(FindUserByPhoneReqDTO findUserByPhoneReqDTO) {
+        String phone = findUserByPhoneReqDTO.getPhone();
+        UserDO userDO = userDOMapper.selectByPhone(phone);
+        if (Objects.isNull(userDO)) {
+            throw new BizException(ResponseCodeEnum.USER_NOT_FOUND);
+        }
+        FindUserByPhoneRspDTO findUserByPhoneRspDTO = FindUserByPhoneRspDTO.builder()
+                .id(userDO.getId())
+                .password(userDO.getPassword())
+                .build();
+        return Response.success(findUserByPhoneRspDTO);
     }
 }

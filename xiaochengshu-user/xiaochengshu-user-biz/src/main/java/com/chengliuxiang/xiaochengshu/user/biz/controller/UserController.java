@@ -3,7 +3,9 @@ package com.chengliuxiang.xiaochengshu.user.biz.controller;
 import com.chengliuxiang.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.chengliuxiang.framework.common.response.Response;
 import com.chengliuxiang.xiaochengshu.user.biz.service.UserService;
+import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByPhoneReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.RegisterUserReqDTO;
+import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByPhoneRspDTO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -20,10 +22,17 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    // ==================================== 对其他服务提供的接口 ======================================
     @PostMapping("/register")
     @ApiOperationLog(description = "用户注册")
-    public Response<Long> register(@RequestBody @Validated RegisterUserReqDTO registerUserReqDTO) {
+    public Response<Long> register(@Validated @RequestBody RegisterUserReqDTO registerUserReqDTO) {
         return userService.register(registerUserReqDTO);
+    }
+
+    @PostMapping("/findByPhone")
+    @ApiOperationLog(description = "手机号查询用户信息")
+    public Response<FindUserByPhoneRspDTO> findByPhone(@Validated @RequestBody FindUserByPhoneReqDTO findUserByPhoneReqDTO) {
+        return userService.findByPhone(findUserByPhoneReqDTO);
     }
 
 }

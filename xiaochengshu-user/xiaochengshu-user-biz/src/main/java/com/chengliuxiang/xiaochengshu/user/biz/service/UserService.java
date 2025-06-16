@@ -1,7 +1,9 @@
 package com.chengliuxiang.xiaochengshu.user.biz.service;
 
 import com.chengliuxiang.framework.common.response.Response;
+import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByPhoneReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.RegisterUserReqDTO;
+import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByPhoneRspDTO;
 
 public interface UserService {
 
@@ -11,4 +13,11 @@ public interface UserService {
      * @return
      */
     Response<Long> register(RegisterUserReqDTO registerUserReqDTO);
+
+    /**
+     * 根据手机号查询用户信息
+     * @param findUserByPhoneReqDTO
+     * @return
+     */
+    Response<FindUserByPhoneRspDTO> findByPhone(FindUserByPhoneReqDTO findUserByPhoneReqDTO);
 }
