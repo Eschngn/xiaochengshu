@@ -83,4 +83,9 @@ public class AuthServiceImpl implements AuthService {
         // 返回 Token 令牌
         return Response.success(tokenInfo.tokenValue);
     }
+
+    @Override
+    public Response<?> logout() {
+        return null;
+    }
 }

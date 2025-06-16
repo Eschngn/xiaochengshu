@@ -1,0 +1,31 @@
+package com.chengliuxiang.xiaochengshu.auth.controller;
+
+import com.chengliuxiang.framework.biz.operationlog.aspect.ApiOperationLog;
+import com.chengliuxiang.framework.common.response.Response;
+import com.chengliuxiang.xiaochengshu.auth.model.vo.user.UserLoginReqVO;
+import com.chengliuxiang.xiaochengshu.auth.service.AuthService;
+import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Slf4j
+public class AuthController {
+    @Resource
+    private AuthService authService;
+
+    @PostMapping("/login")
+    @ApiOperationLog(description = "用户登录/注册")
+    public Response<String> loginAndRegister(@Validated @RequestBody UserLoginReqVO userLoginReqVO) {
+        return authService.loginAndRegister(userLoginReqVO);
+    }
+
+    @PostMapping("/logout")
+    @ApiOperationLog(description = "退出登录")
+    public Response<?> logout() {
+        return authService.logout();
+    }
+}

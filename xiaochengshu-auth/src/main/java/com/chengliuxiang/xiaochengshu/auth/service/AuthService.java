@@ -6,4 +6,6 @@ import com.chengliuxiang.xiaochengshu.auth.model.vo.user.UserLoginReqVO;
 public interface AuthService {
 
     Response<String> loginAndRegister(UserLoginReqVO userLoginReqVO);
+
+    Response<?> logout();
 }
