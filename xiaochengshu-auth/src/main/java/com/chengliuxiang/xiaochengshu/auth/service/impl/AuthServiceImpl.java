@@ -2,11 +2,13 @@ package com.chengliuxiang.xiaochengshu.auth.service.impl;
 
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
+import com.chengliuxiang.framework.biz.context.holder.LoginUserContextHolder;
 import com.chengliuxiang.framework.common.exception.BizException;
 import com.chengliuxiang.framework.common.response.Response;
 import com.chengliuxiang.xiaochengshu.auth.constant.RedisKeyConstants;
 import com.chengliuxiang.xiaochengshu.auth.enums.LoginTypeEnum;
 import com.chengliuxiang.xiaochengshu.auth.enums.ResponseCodeEnum;
+import com.chengliuxiang.xiaochengshu.auth.model.vo.user.UpdatePasswordReqVO;
 import com.chengliuxiang.xiaochengshu.auth.model.vo.user.UserLoginReqVO;
 import com.chengliuxiang.xiaochengshu.auth.rpc.UserRpcService;
 import com.chengliuxiang.xiaochengshu.auth.service.AuthService;
@@ -86,6 +88,19 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Response<?> logout() {
-        return null;
+        Long userId = LoginUserContextHolder.getUserId();
+
+        StpUtil.logout(userId);
+        return Response.success();
+    }
+
+    @Override
+    public Response<?> updatePassword(UpdatePasswordReqVO updatePasswordReqVO) {
+        String newPassword = updatePasswordReqVO.getNewPassword();
+        String encodePassword = passwordEncoder.encode(newPassword);
+
+        // RPC:调用用户服务更新密码
+        userRpcService.updatePassword(encodePassword);
+        return Response.success();
     }
 }

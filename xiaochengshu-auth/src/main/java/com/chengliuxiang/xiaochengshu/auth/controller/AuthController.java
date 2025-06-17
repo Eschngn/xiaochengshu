@@ -2,6 +2,7 @@ package com.chengliuxiang.xiaochengshu.auth.controller;
 
 import com.chengliuxiang.framework.biz.operationlog.aspect.ApiOperationLog;
 import com.chengliuxiang.framework.common.response.Response;
+import com.chengliuxiang.xiaochengshu.auth.model.vo.user.UpdatePasswordReqVO;
 import com.chengliuxiang.xiaochengshu.auth.model.vo.user.UserLoginReqVO;
 import com.chengliuxiang.xiaochengshu.auth.service.AuthService;
 import jakarta.annotation.Resource;
@@ -27,5 +28,11 @@ public class AuthController {
     @ApiOperationLog(description = "退出登录")
     public Response<?> logout() {
         return authService.logout();
+    }
+
+    @PostMapping("/password/update")
+    @ApiOperationLog(description = "修改密码")
+    public Response<?> updatePassword(@Validated @RequestBody UpdatePasswordReqVO updatePasswordReqVO) {
+        return authService.updatePassword(updatePasswordReqVO);
     }
 }

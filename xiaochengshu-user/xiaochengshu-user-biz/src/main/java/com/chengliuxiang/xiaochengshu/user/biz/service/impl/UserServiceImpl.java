@@ -1,5 +1,6 @@
 package com.chengliuxiang.xiaochengshu.user.biz.service.impl;
 
+import com.chengliuxiang.framework.biz.context.holder.LoginUserContextHolder;
 import com.chengliuxiang.framework.common.enums.DeleteEnum;
 import com.chengliuxiang.framework.common.enums.StatusEnum;
 import com.chengliuxiang.framework.common.exception.BizException;
@@ -17,6 +18,7 @@ import com.chengliuxiang.xiaochengshu.user.biz.enums.ResponseCodeEnum;
 import com.chengliuxiang.xiaochengshu.user.biz.service.UserService;
 import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByPhoneReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.RegisterUserReqDTO;
+import com.chengliuxiang.xiaochengshu.user.dto.req.UpdateUserPasswordReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByPhoneRspDTO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -117,5 +119,22 @@ public class UserServiceImpl implements UserService {
                 .password(userDO.getPassword())
                 .build();
         return Response.success(findUserByPhoneRspDTO);
+    }
+
+    /**
+     * 更新密码
+     *
+     * @param updateUserPasswordReqDTO
+     * @return
+     */
+    @Override
+    public Response<?> updatePassword(UpdateUserPasswordReqDTO updateUserPasswordReqDTO) {
+        Long userId = LoginUserContextHolder.getUserId();
+        UserDO userDO = UserDO.builder()
+                .id(userId)
+                .password(updateUserPasswordReqDTO.getEncodePassword())
+                .build();
+        userDOMapper.updateByPrimaryKeySelective(userDO);
+        return Response.success();
     }
 }
