@@ -7,16 +7,11 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.chengliuxiang.framework.biz.context</groupId>
     <artifactId>xiaochengshu-spring-boot-starter-biz-context</artifactId>
     <packaging>jar</packaging>
 
-    <name>xiaochengshu-spring-boot-starter-biz-context</name>
-    <url>http://maven.apache.org</url>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <name>${project.artifactId}</name>
+    <description>上下文组件</description>
 
     <dependencies>
         <dependency>

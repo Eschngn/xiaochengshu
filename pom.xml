@@ -78,6 +78,12 @@
                 <version>${revision}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.chengliuxiang</groupId>
+                <artifactId>xiaochengshu-spring-boot-starter-biz-context</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
