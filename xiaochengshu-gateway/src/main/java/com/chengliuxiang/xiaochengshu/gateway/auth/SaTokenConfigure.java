@@ -27,6 +27,7 @@ public class SaTokenConfigure {
                     ;
 
                     // 权限认证 -- 不同模块, 校验不同权限
+                    // SaRouter.match("/auth/logout", r -> StpUtil.checkPermission("user"));
                     // SaRouter.match("/user/**", r -> StpUtil.checkPermission("user"));
                     // SaRouter.match("/admin/**", r -> StpUtil.checkPermission("admin"));
                     // SaRouter.match("/goods/**", r -> StpUtil.checkPermission("goods"));
