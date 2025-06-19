@@ -70,11 +70,6 @@
             <groupId>com.chengliuxiang</groupId>
             <artifactId>xiaochengshu-spring-boot-starter-jackson</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.chengliuxiang</groupId>
-            <artifactId>xiaochengshu-common</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

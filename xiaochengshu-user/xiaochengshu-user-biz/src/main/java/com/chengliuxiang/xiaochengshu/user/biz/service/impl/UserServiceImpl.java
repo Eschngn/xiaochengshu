@@ -63,10 +63,10 @@ public class UserServiceImpl implements UserService {
 
         // 否则注册新用户
         // TODO 调用分布式 ID 生成服务生成小橙书 ID
-        String xiaochengshuId = "12315343";
+        String xiaochengshuId = "12315555";
 
         // TODO 调用分布式 ID 生成服务生成用户 ID
-        String userIdStr = "4231123";
+        String userIdStr = "4321145";
 
         Long userId = Long.valueOf(userIdStr);
         UserDO userDO = UserDO.builder()

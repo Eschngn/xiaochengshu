@@ -97,6 +97,12 @@
             <groupId>com.chengliuxiang</groupId>
             <artifactId>xiaochengshu-user-api</artifactId>
         </dependency>
+
+        <!-- 负载均衡 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
