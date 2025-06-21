@@ -92,6 +92,11 @@
             <artifactId>xiaochengshu-user-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.chengliuxiang</groupId>
+            <artifactId>xiaochengshu-oss-api</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
