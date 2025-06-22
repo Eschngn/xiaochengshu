@@ -6,6 +6,7 @@ import com.chengliuxiang.framework.common.enums.StatusEnum;
 import com.chengliuxiang.framework.common.exception.BizException;
 import com.chengliuxiang.framework.common.response.Response;
 import com.chengliuxiang.framework.common.utils.JsonUtil;
+import com.chengliuxiang.framework.common.utils.ParamUtil;
 import com.chengliuxiang.xiaochengshu.user.biz.constant.RedisKeyConstants;
 import com.chengliuxiang.xiaochengshu.user.biz.constant.RoleConstants;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.dataobject.RoleDO;
@@ -15,15 +16,21 @@ import com.chengliuxiang.xiaochengshu.user.biz.domain.mapper.RoleDOMapper;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.mapper.UserDOMapper;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.mapper.UserRoleDOMapper;
 import com.chengliuxiang.xiaochengshu.user.biz.enums.ResponseCodeEnum;
+import com.chengliuxiang.xiaochengshu.user.biz.enums.SexEnum;
+import com.chengliuxiang.xiaochengshu.user.biz.model.vo.UpdateUserInfoReqVO;
+import com.chengliuxiang.xiaochengshu.user.biz.rpc.OssRpcService;
 import com.chengliuxiang.xiaochengshu.user.biz.service.UserService;
 import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByPhoneReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.RegisterUserReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.UpdateUserPasswordReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByPhoneRspDTO;
+import com.google.common.base.Preconditions;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -42,6 +49,84 @@ public class UserServiceImpl implements UserService {
     private RoleDOMapper roleDOMapper;
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
+    @Resource
+    private OssRpcService ossRpcService;
+
+    /**
+     * 更新用户信息
+     *
+     * @param updateUserInfoReqVO
+     * @return
+     */
+    @Override
+    public Response<?> updateUserInfo(UpdateUserInfoReqVO updateUserInfoReqVO) {
+        UserDO userDO = new UserDO();
+        userDO.setId(LoginUserContextHolder.getUserId());
+        Boolean needUpdate = false;
+        // 头像
+        MultipartFile avatarFile = updateUserInfoReqVO.getAvatar();
+        if (Objects.nonNull(avatarFile) && avatarFile.getSize() > 0) {
+            String avatarUrl = ossRpcService.uploadFile(avatarFile);
+            log.info("===> 调用 oss 服务成功，上传头像，url:{}", avatarUrl);
+            if (StringUtils.isBlank(avatarUrl)) {
+                throw new BizException(ResponseCodeEnum.UPLOAD_AVATAR_FAIL);
+            }
+            userDO.setAvatar(avatarUrl);
+            needUpdate = true;
+        }
+        // 昵称
+        String nickname = updateUserInfoReqVO.getNickname();
+        if (StringUtils.isNotBlank(nickname)) {
+            Preconditions.checkArgument(ParamUtil.checkNickname(nickname), ResponseCodeEnum.NICK_NAME_VALID_FAIL.getErrorMessage());
+            userDO.setNickname(nickname);
+            needUpdate = true;
+        }
+        // 小橙书 ID
+        String xiaochengshuId = updateUserInfoReqVO.getXiaochengshuId();
+        if (StringUtils.isNotBlank(xiaochengshuId)) {
+            Preconditions.checkArgument(ParamUtil.checkXiaochengshuId(xiaochengshuId), ResponseCodeEnum.XIAOCHENGSHU_ID_VALID_FAIL.getErrorMessage());
+            userDO.setXiaochengshuId(xiaochengshuId);
+            needUpdate = true;
+        }
+        // 性别
+        Integer sex = updateUserInfoReqVO.getSex();
+        if (Objects.nonNull(sex)) {
+            Preconditions.checkArgument(SexEnum.isValid(sex), ResponseCodeEnum.SEX_VALID_FAIL.getErrorMessage());
+            userDO.setSex(sex);
+            needUpdate = true;
+        }
+        // 个人简介
+        String introduction = updateUserInfoReqVO.getIntroduction();
+        if (StringUtils.isNotBlank(introduction)) {
+            Preconditions.checkArgument(ParamUtil.checkLength(introduction, 100), ResponseCodeEnum.INTRODUCTION_VALID_FAIL.getErrorMessage());
+            userDO.setIntroduction(introduction);
+            needUpdate = true;
+        }
+        // 生日
+        LocalDateTime birthday = updateUserInfoReqVO.getBirthday();
+        if (Objects.nonNull(birthday)) {
+            userDO.setBirthday(birthday);
+            needUpdate = true;
+        }
+
+        // 背景图
+        MultipartFile backgroundImgFile = updateUserInfoReqVO.getBackgroundImg();
+        if (Objects.nonNull(backgroundImgFile)) {
+            String backgroundImgUrl = ossRpcService.uploadFile(backgroundImgFile);
+            log.info("===> 调用 oss 服务成功，上传背景图，url:{}", backgroundImgUrl);
+            if(StringUtils.isBlank(backgroundImgUrl)){
+                throw new BizException(ResponseCodeEnum.UPLOAD_BACKGROUND_IMG_FAIL);
+            }
+            userDO.setBackgroundImg(backgroundImgUrl);
+            needUpdate = true;
+        }
+        if (needUpdate) {
+            userDO.setUpdateTime(LocalDateTime.now());
+            userDOMapper.updateByPrimaryKeySelective(userDO);
+        }
+
+        return Response.success();
+    }
 
     /**
      * 用户注册

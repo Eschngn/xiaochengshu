@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -24,7 +24,7 @@ public class UpdateUserInfoReqVO {
     private String nickname;
 
     /**
-     * 小哈书 ID
+     * 小橙书 ID
      */
     private String xiaochengshuId;
 
@@ -36,7 +36,7 @@ public class UpdateUserInfoReqVO {
     /**
      * 生日
      */
-    private LocalDate birthday;
+    private LocalDateTime birthday;
 
     /**
      * 个人介绍
