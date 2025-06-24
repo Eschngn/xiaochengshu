@@ -3,7 +3,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 logs/
-/.flattened-pom.xml
+**/flattened-pom.xml
 
 ### IntelliJ IDEA ###
 .idea/*
