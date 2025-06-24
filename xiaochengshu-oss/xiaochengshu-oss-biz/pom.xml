@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.chengliuxiang</groupId>
         <artifactId>xiaochengshu-oss</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>xiaochengshu-oss-biz</artifactId>

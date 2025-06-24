@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.chengliuxiang</groupId>
         <artifactId>xiaochengshu-framework</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>xiaochengshu-spring-boot-starter-biz-context</artifactId>
