@@ -16,6 +16,7 @@
         <module>xiaochengshu-gateway</module>
         <module>xiaochengshu-user</module>
         <module>xiaochengshu-oss</module>
+        <module>xiaochengshu-distributed-id-generator</module>
     </modules>
 
     <properties>
@@ -259,6 +260,12 @@
             <dependency>
                 <groupId>com.chengliuxiang</groupId>
                 <artifactId>xiaochengshu-oss-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.chengliuxiang</groupId>
+                <artifactId>xiaochengshu-distributed-id-generator-api</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>

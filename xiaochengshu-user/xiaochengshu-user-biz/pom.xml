@@ -97,6 +97,10 @@
             <artifactId>xiaochengshu-oss-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.chengliuxiang</groupId>
+            <artifactId>xiaochengshu-distributed-id-generator-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

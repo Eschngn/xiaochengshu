@@ -18,6 +18,7 @@ import com.chengliuxiang.xiaochengshu.user.biz.domain.mapper.UserRoleDOMapper;
 import com.chengliuxiang.xiaochengshu.user.biz.enums.ResponseCodeEnum;
 import com.chengliuxiang.xiaochengshu.user.biz.enums.SexEnum;
 import com.chengliuxiang.xiaochengshu.user.biz.model.vo.UpdateUserInfoReqVO;
+import com.chengliuxiang.xiaochengshu.user.biz.rpc.DistributedIdGeneratorRpcService;
 import com.chengliuxiang.xiaochengshu.user.biz.rpc.OssRpcService;
 import com.chengliuxiang.xiaochengshu.user.biz.service.UserService;
 import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByPhoneReqDTO;
@@ -51,6 +52,8 @@ public class UserServiceImpl implements UserService {
     private RedisTemplate<String, Object> redisTemplate;
     @Resource
     private OssRpcService ossRpcService;
+    @Resource
+    private DistributedIdGeneratorRpcService distributedIdGeneratorRpcService;
 
     /**
      * 更新用户信息
@@ -147,11 +150,11 @@ public class UserServiceImpl implements UserService {
         }
 
         // 否则注册新用户
-        // TODO 调用分布式 ID 生成服务生成小橙书 ID
-        String xiaochengshuId = "12315555";
+        // 调用分布式 ID 生成服务生成小橙书 ID
+        String xiaochengshuId = distributedIdGeneratorRpcService.getXiaochengshuId();
 
-        // TODO 调用分布式 ID 生成服务生成用户 ID
-        String userIdStr = "4321145";
+        // 调用分布式 ID 生成服务生成用户 ID
+        String userIdStr = distributedIdGeneratorRpcService.getUserId();
 
         Long userId = Long.valueOf(userIdStr);
         UserDO userDO = UserDO.builder()
