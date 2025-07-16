@@ -1,8 +1,8 @@
-package com.chengliuxiang.xiaochengshu.user.biz.exception;
+package com.chengliuxiang.xiaochengshu.note.biz.exception;
 
 import com.chengliuxiang.framework.common.exception.BizException;
 import com.chengliuxiang.framework.common.response.Response;
-import com.chengliuxiang.xiaochengshu.user.biz.enums.ResponseCodeEnum;
+import com.chengliuxiang.xiaochengshu.note.biz.enums.ResponseCodeEnum;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;

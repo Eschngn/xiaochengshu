@@ -18,6 +18,7 @@
         <module>xiaochengshu-oss</module>
         <module>xiaochengshu-distributed-id-generator</module>
         <module>xiaochengshu-kv</module>
+        <module>xiaochengshu-note</module>
     </modules>
 
     <properties>
