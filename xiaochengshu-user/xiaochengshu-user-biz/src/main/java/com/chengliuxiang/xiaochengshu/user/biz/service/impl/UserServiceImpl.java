@@ -1,5 +1,6 @@
 package com.chengliuxiang.xiaochengshu.user.biz.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
 import com.chengliuxiang.framework.biz.context.holder.LoginUserContextHolder;
 import com.chengliuxiang.framework.common.enums.DeleteEnum;
 import com.chengliuxiang.framework.common.enums.StatusEnum;
@@ -32,6 +33,7 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -39,6 +41,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Slf4j
@@ -56,6 +59,8 @@ public class UserServiceImpl implements UserService {
     private OssRpcService ossRpcService;
     @Resource
     private DistributedIdGeneratorRpcService distributedIdGeneratorRpcService;
+    @Resource(name = "taskExecutor")
+    private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     /**
      * 更新用户信息
@@ -119,7 +124,7 @@ public class UserServiceImpl implements UserService {
         if (Objects.nonNull(backgroundImgFile)) {
             String backgroundImgUrl = ossRpcService.uploadFile(backgroundImgFile);
             log.info("===> 调用 oss 服务成功，上传背景图，url:{}", backgroundImgUrl);
-            if(StringUtils.isBlank(backgroundImgUrl)){
+            if (StringUtils.isBlank(backgroundImgUrl)) {
                 throw new BizException(ResponseCodeEnum.UPLOAD_BACKGROUND_IMG_FAIL);
             }
             userDO.setBackgroundImg(backgroundImgUrl);
@@ -230,23 +235,46 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 根据用户 ID 查询用户信息
+     *
      * @param findUserByIdReqDTO
      * @return
      */
     @Override
     public Response<FindUserByIdRspDTO> findById(FindUserByIdReqDTO findUserByIdReqDTO) {
-        Long id = findUserByIdReqDTO.getId();
-        UserDO userDO = userDOMapper.selectByPrimaryKey(id);
+        Long userId = findUserByIdReqDTO.getId();
+        String userInfoRedisKey = RedisKeyConstants.buildUserInfoKey(userId);
+        String userInfoRedisValue = (String) redisTemplate.opsForValue().get(userInfoRedisKey);
 
-        if(Objects.isNull(userDO)){
+        if (StringUtils.isNotBlank(userInfoRedisValue)) {
+            FindUserByIdRspDTO findUserByIdRspDTO = JsonUtil.parseObject(userInfoRedisValue, FindUserByIdRspDTO.class);
+            return Response.success(findUserByIdRspDTO);
+        }
+        // Redis 中不存在，则从数据库中查
+        UserDO userDO = userDOMapper.selectByPrimaryKey(userId);
+
+        if (Objects.isNull(userDO)) {
+            // 数据库中也不存在
+            threadPoolTaskExecutor.submit(() -> {
+                // 保底1分钟的随机时间，防止缓存击穿
+                long expireSecond = 60 + RandomUtil.randomInt(60);
+                redisTemplate.opsForValue().set(userInfoRedisKey, "null", expireSecond, TimeUnit.SECONDS);
+            });
             throw new BizException(ResponseCodeEnum.USER_NOT_FOUND);
         }
+
 
         FindUserByIdRspDTO findUserByIdRspDTO = FindUserByIdRspDTO.builder()
                 .id(userDO.getId())
                 .nickName(userDO.getNickname())
                 .avatar(userDO.getAvatar())
                 .build();
+
+        threadPoolTaskExecutor.submit(() -> {
+            // 保底1天的随机事件，防止缓存雪崩
+            long expireSeconds = 60*60*24 + RandomUtil.randomInt(60*60*24);
+            redisTemplate.opsForValue()
+                    .set(userInfoRedisKey,JsonUtil.toJsonString(findUserByIdReqDTO), expireSeconds, TimeUnit.SECONDS);
+        });
         return Response.success(findUserByIdRspDTO);
     }
 }
