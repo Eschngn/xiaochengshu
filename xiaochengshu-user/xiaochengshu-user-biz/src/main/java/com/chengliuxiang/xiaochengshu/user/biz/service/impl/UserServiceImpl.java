@@ -21,9 +21,11 @@ import com.chengliuxiang.xiaochengshu.user.biz.model.vo.UpdateUserInfoReqVO;
 import com.chengliuxiang.xiaochengshu.user.biz.rpc.DistributedIdGeneratorRpcService;
 import com.chengliuxiang.xiaochengshu.user.biz.rpc.OssRpcService;
 import com.chengliuxiang.xiaochengshu.user.biz.service.UserService;
+import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByIdReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByPhoneReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.RegisterUserReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.UpdateUserPasswordReqDTO;
+import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByIdRspDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByPhoneRspDTO;
 import com.google.common.base.Preconditions;
 import jakarta.annotation.Resource;
@@ -224,5 +226,27 @@ public class UserServiceImpl implements UserService {
                 .build();
         userDOMapper.updateByPrimaryKeySelective(userDO);
         return Response.success();
+    }
+
+    /**
+     * 根据用户 ID 查询用户信息
+     * @param findUserByIdReqDTO
+     * @return
+     */
+    @Override
+    public Response<FindUserByIdRspDTO> findById(FindUserByIdReqDTO findUserByIdReqDTO) {
+        Long id = findUserByIdReqDTO.getId();
+        UserDO userDO = userDOMapper.selectByPrimaryKey(id);
+
+        if(Objects.isNull(userDO)){
+            throw new BizException(ResponseCodeEnum.USER_NOT_FOUND);
+        }
+
+        FindUserByIdRspDTO findUserByIdRspDTO = FindUserByIdRspDTO.builder()
+                .id(userDO.getId())
+                .nickName(userDO.getNickname())
+                .avatar(userDO.getAvatar())
+                .build();
+        return Response.success(findUserByIdRspDTO);
     }
 }

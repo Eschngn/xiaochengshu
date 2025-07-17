@@ -2,9 +2,11 @@ package com.chengliuxiang.xiaochengshu.user.biz.service;
 
 import com.chengliuxiang.framework.common.response.Response;
 import com.chengliuxiang.xiaochengshu.user.biz.model.vo.UpdateUserInfoReqVO;
+import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByIdReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.FindUserByPhoneReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.RegisterUserReqDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.req.UpdateUserPasswordReqDTO;
+import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByIdRspDTO;
 import com.chengliuxiang.xiaochengshu.user.dto.resp.FindUserByPhoneRspDTO;
 
 public interface UserService {
@@ -39,4 +41,11 @@ public interface UserService {
      * @return
      */
     Response<?> updatePassword(UpdateUserPasswordReqDTO updateUserPasswordReqDTO);
+
+    /**
+     * 根据用户 ID 查询用户信息
+     * @param findUserByIdReqDTO
+     * @return
+     */
+    Response<FindUserByIdRspDTO> findById(FindUserByIdReqDTO findUserByIdReqDTO);
 }
