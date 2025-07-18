@@ -28,8 +28,6 @@ spring:
         login-username: admin # 配置监控后台登录的用户名、密码
         login-password: admin
       filter:
-        config:
-          enabled: true
         stat:
           enabled: true
           log-slow-sql: true # 开启慢 sql 记录

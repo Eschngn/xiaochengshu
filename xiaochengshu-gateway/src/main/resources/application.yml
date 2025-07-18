@@ -10,6 +10,12 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1
+        - id: user
+          uri: lb://xiaochengshu-user
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
         - id: note
           uri: lb://xiaochengshu-note
           predicates:
