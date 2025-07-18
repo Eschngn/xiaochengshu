@@ -4,13 +4,15 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.checkerframework.checker.units.qual.N;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
-@NotNull
+@NoArgsConstructor
 @Builder
 public class FindNoteDetailRspVO {
     private Long id;

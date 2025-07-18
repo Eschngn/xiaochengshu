@@ -42,7 +42,7 @@ public class NoteContentServiceImpl implements NoteContentService {
         String uuid = findNoteContentReqDTO.getUuid();
         Optional<NoteContentDO> optional = noteContentRepository.findById(UUID.fromString(uuid));
 
-        if(optional.isPresent()){
+        if(optional.isEmpty()){
             throw new BizException(ResponseCodeEnum.NOTE_CONTENT_NOT_FOUND);
         }
         NoteContentDO noteContentDO = optional.get();
