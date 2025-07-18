@@ -1,4 +1,4 @@
-package com.chengliuxiang.framework.common.utils;
+package com.chengliuxiang.framework.common.util;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 
-public final class JsonUtil {
+public final class JsonUtils {
     private static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {

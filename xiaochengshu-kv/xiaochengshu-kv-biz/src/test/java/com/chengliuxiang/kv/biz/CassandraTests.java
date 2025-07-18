@@ -1,6 +1,6 @@
 package com.chengliuxiang.kv.biz;
 
-import com.chengliuxiang.framework.common.utils.JsonUtil;
+import com.chengliuxiang.framework.common.util.JsonUtils;
 import com.chengliuxiang.kv.biz.domain.dataobject.NoteContentDO;
 import com.chengliuxiang.kv.biz.domain.repository.NoteContentRepository;
 import jakarta.annotation.Resource;
@@ -41,7 +41,7 @@ public class CassandraTests {
     @Test
     void testSelect() {
         Optional<NoteContentDO> optional = noteContentRepository.findById(UUID.fromString("0b6ed125-208c-4646-9a2b-87937581244e"));
-        optional.ifPresent(noteContentDO -> log.info("查询结果：{}", JsonUtil.toJsonString(noteContentDO)));
+        optional.ifPresent(noteContentDO -> log.info("查询结果：{}", JsonUtils.toJsonString(noteContentDO)));
     }
 
     @Test

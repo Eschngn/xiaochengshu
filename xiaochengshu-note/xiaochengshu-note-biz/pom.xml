@@ -95,6 +95,16 @@
             <groupId>com.chengliuxiang</groupId>
             <artifactId>xiaochengshu-distributed-id-generator-api</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.chengliuxiang</groupId>
+            <artifactId>xiaochengshu-user-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

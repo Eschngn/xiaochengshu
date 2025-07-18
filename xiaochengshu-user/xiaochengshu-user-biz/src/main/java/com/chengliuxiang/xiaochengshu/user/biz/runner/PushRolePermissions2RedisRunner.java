@@ -1,7 +1,7 @@
 package com.chengliuxiang.xiaochengshu.user.biz.runner;
 
 import cn.hutool.core.collection.CollUtil;
-import com.chengliuxiang.framework.common.utils.JsonUtil;
+import com.chengliuxiang.framework.common.util.JsonUtils;
 import com.chengliuxiang.xiaochengshu.user.biz.constant.RedisKeyConstants;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.dataobject.PermissionDO;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.dataobject.RoleDO;
@@ -88,7 +88,7 @@ public class PushRolePermissions2RedisRunner implements ApplicationRunner {
                 // 同步至 Redis 中，方便后续网关查询鉴权使用
                 roleKeyPermissionsMap.forEach((roleKey, permissions) -> {
                     String key = RedisKeyConstants.buildRolePermissionsKey(roleKey);
-                    redisTemplate.opsForValue().set(key, JsonUtil.toJsonString(permissions));
+                    redisTemplate.opsForValue().set(key, JsonUtils.toJsonString(permissions));
                 });
                 log.info("==> 服务启动，成功同步角色权限数据到 Redis 中...");
             }

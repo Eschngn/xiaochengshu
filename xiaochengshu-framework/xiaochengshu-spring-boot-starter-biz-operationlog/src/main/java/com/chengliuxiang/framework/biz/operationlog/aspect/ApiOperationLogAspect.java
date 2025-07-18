@@ -1,6 +1,6 @@
 package com.chengliuxiang.framework.biz.operationlog.aspect;
 
-import com.chengliuxiang.framework.common.utils.JsonUtil;
+import com.chengliuxiang.framework.common.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -45,7 +45,7 @@ public class ApiOperationLogAspect {
         long executionTime = System.currentTimeMillis() - startTime;
         // 打印出参等相关信息
         log.info("====== 请求结束: [{}], 耗时: {}ms, 出参: {} =================================== ",
-                description, executionTime, JsonUtil.toJsonString(result));
+                description, executionTime, JsonUtils.toJsonString(result));
 
         return result;
 
@@ -77,6 +77,6 @@ public class ApiOperationLogAspect {
      * @return
      */
     private Function<Object, String> toJsonStr() {
-        return JsonUtil::toJsonString;
+        return JsonUtils::toJsonString;
     }
 }

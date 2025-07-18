@@ -1,7 +1,7 @@
 package com.chengliuxiang.framework.jackson.config;
 
 import com.chengliuxiang.framework.common.constant.DateConstants;
-import com.chengliuxiang.framework.common.utils.JsonUtil;
+import com.chengliuxiang.framework.common.util.JsonUtils;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -56,7 +56,7 @@ public class JacksonAutoConfiguration {
         objectMapper.registerModule(javaTimeModule);
 
         // 初始化 JsonUtils 中的 ObjectMapper
-        JsonUtil.init(objectMapper);
+        JsonUtils.init(objectMapper);
 
         return objectMapper;
     }

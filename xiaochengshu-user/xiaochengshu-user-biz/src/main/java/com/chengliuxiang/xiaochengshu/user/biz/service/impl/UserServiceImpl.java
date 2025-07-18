@@ -6,8 +6,8 @@ import com.chengliuxiang.framework.common.enums.DeleteEnum;
 import com.chengliuxiang.framework.common.enums.StatusEnum;
 import com.chengliuxiang.framework.common.exception.BizException;
 import com.chengliuxiang.framework.common.response.Response;
-import com.chengliuxiang.framework.common.utils.JsonUtil;
-import com.chengliuxiang.framework.common.utils.ParamUtil;
+import com.chengliuxiang.framework.common.util.JsonUtils;
+import com.chengliuxiang.framework.common.util.ParamUtils;
 import com.chengliuxiang.xiaochengshu.user.biz.constant.RedisKeyConstants;
 import com.chengliuxiang.xiaochengshu.user.biz.constant.RoleConstants;
 import com.chengliuxiang.xiaochengshu.user.biz.domain.dataobject.RoleDO;
@@ -95,14 +95,14 @@ public class UserServiceImpl implements UserService {
         // 昵称
         String nickname = updateUserInfoReqVO.getNickname();
         if (StringUtils.isNotBlank(nickname)) {
-            Preconditions.checkArgument(ParamUtil.checkNickname(nickname), ResponseCodeEnum.NICK_NAME_VALID_FAIL.getErrorMessage());
+            Preconditions.checkArgument(ParamUtils.checkNickname(nickname), ResponseCodeEnum.NICK_NAME_VALID_FAIL.getErrorMessage());
             userDO.setNickname(nickname);
             needUpdate = true;
         }
         // 小橙书 ID
         String xiaochengshuId = updateUserInfoReqVO.getXiaochengshuId();
         if (StringUtils.isNotBlank(xiaochengshuId)) {
-            Preconditions.checkArgument(ParamUtil.checkXiaochengshuId(xiaochengshuId), ResponseCodeEnum.XIAOCHENGSHU_ID_VALID_FAIL.getErrorMessage());
+            Preconditions.checkArgument(ParamUtils.checkXiaochengshuId(xiaochengshuId), ResponseCodeEnum.XIAOCHENGSHU_ID_VALID_FAIL.getErrorMessage());
             userDO.setXiaochengshuId(xiaochengshuId);
             needUpdate = true;
         }
@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
         // 个人简介
         String introduction = updateUserInfoReqVO.getIntroduction();
         if (StringUtils.isNotBlank(introduction)) {
-            Preconditions.checkArgument(ParamUtil.checkLength(introduction, 100), ResponseCodeEnum.INTRODUCTION_VALID_FAIL.getErrorMessage());
+            Preconditions.checkArgument(ParamUtils.checkLength(introduction, 100), ResponseCodeEnum.INTRODUCTION_VALID_FAIL.getErrorMessage());
             userDO.setIntroduction(introduction);
             needUpdate = true;
         }
@@ -200,7 +200,7 @@ public class UserServiceImpl implements UserService {
         roles.add(roleDO.getRoleKey());
         String userRolesKey = RedisKeyConstants.buildUserRolesKey(userId);
         // 将该用户 ID 和角色数据存入 Redis 中
-        redisTemplate.opsForValue().set(userRolesKey, JsonUtil.toJsonString(roles));
+        redisTemplate.opsForValue().set(userRolesKey, JsonUtils.toJsonString(roles));
         return Response.success(userId);
     }
 
@@ -261,7 +261,7 @@ public class UserServiceImpl implements UserService {
 
         // Redis 中存在
         if (StringUtils.isNotBlank(userInfoRedisValue)) {
-            FindUserByIdRspDTO findUserByIdRspDTO = JsonUtil.parseObject(userInfoRedisValue, FindUserByIdRspDTO.class);
+            FindUserByIdRspDTO findUserByIdRspDTO = JsonUtils.parseObject(userInfoRedisValue, FindUserByIdRspDTO.class);
             threadPoolTaskExecutor.execute(() -> {
                 // 写入本地缓存
                 LOCAL_CACHE.put(userId, findUserByIdRspDTO);
@@ -292,7 +292,7 @@ public class UserServiceImpl implements UserService {
             // 保底1天的随机事件，防止缓存雪崩
             long expireSeconds = 60 * 60 * 24 + RandomUtil.randomInt(60 * 60 * 24);
             redisTemplate.opsForValue()
-                    .set(userInfoRedisKey, JsonUtil.toJsonString(findUserByIdReqDTO), expireSeconds, TimeUnit.SECONDS);
+                    .set(userInfoRedisKey, JsonUtils.toJsonString(findUserByIdReqDTO), expireSeconds, TimeUnit.SECONDS);
         });
         return Response.success(findUserByIdRspDTO);
     }

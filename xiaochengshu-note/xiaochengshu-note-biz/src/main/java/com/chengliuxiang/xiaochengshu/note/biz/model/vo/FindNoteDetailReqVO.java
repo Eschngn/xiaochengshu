@@ -1,4 +1,4 @@
-package com.chengliuxiang.xiaochengshu.kv.dto.req;
+package com.chengliuxiang.xiaochengshu.note.biz.model.vo;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -6,11 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class FindNoteContentReqDTO {
-    @NotNull(message = "笔记内容 UUID 不能为空")
-    private String uuid;
+@Builder
+public class FindNoteDetailReqVO {
+
+    @NotNull(message = "笔记 ID 不能为空")
+    private Long id;
 }

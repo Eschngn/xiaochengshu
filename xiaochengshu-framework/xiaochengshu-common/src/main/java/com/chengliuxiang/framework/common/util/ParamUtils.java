@@ -1,9 +1,9 @@
-package com.chengliuxiang.framework.common.utils;
+package com.chengliuxiang.framework.common.util;
 
 import java.util.regex.Pattern;
 
-public final class ParamUtil {
-    private ParamUtil() {
+public final class ParamUtils {
+    private ParamUtils() {
     }
 
     private static final int NICK_NAME_MIN_LENGTH = 2;
